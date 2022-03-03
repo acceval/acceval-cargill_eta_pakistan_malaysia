@@ -85,8 +85,13 @@ class Model:
 		self.eta_model = None		
 		file = Path(self.path_to_folder+self.eta_model_file)
 		if file.is_file():            
-			with open(file, 'rb') as inp:
-				self.eta_model = pickle.load(inp)
+			# if the model saved in pkl
+			# with open(file, 'rb') as inp:
+			# 	self.eta_model = pickle.load(inp)
+
+			# if the model saved in json
+			self.eta_model = xgb.XGBRegressor(random_state=42)
+			self.eta_model.load_model(self.eta_model_file)
 
 		self.vessels = None		
 		file = Path(self.path_to_folder+'dataset/'+'vessels.csv')		
