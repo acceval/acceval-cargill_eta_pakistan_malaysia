@@ -28,6 +28,7 @@ import networkx as nx
 from math import sin, cos, sqrt, atan2, radians
 import json
 import xgboost as xgb
+from xgboost import Booster
 
 class Model:
 
@@ -40,6 +41,8 @@ class Model:
 		self.original_features = config.ORIGINAL_FEATURES
 		self.features = config.FEATURES 
 		self.scaling_features = config.SCALING_FEATURES 
+
+		self.booster = Booster()
 
 		self.log = Log()		
 		# self.database = pd.read_csv('dataset/database.csv')
@@ -90,8 +93,12 @@ class Model:
 			# 	self.eta_model = pickle.load(inp)
 
 			# if the model saved in json
-			self.eta_model = xgb.XGBRegressor(random_state=42)
-			self.eta_model.load_model(self.eta_model_file)
+			
+			# self.eta_model = xgb.XGBRegressor(random_state=42)
+			# self.eta_model.load_model(self.eta_model_file)
+
+			self.eta_model = pickle.load(open(file, "rb"))
+
 
 		self.vessels = None		
 		file = Path(self.path_to_folder+'dataset/'+'vessels.csv')		

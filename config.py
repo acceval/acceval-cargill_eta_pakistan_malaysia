@@ -5,7 +5,8 @@ import os
 PATH_TO_FOLDER = str(os.getcwd())+'/'
 GRAPH_MODEL = 'graph_pakistan_malaysia.pkl'
 # ETA_MODEL = 'regression_pakistan_malaysia.pkl'
-ETA_MODEL = 'regression_pakistan_malaysia.json'
+# ETA_MODEL = 'regression_pakistan_malaysia.json'
+ETA_MODEL = 'regression_pakistan_malaysia.dat'
 DIST_TO_DIST_GEO_RATIO = 0.9720400077545632
 LABEL_ENCODERS = 'label_encoders.pkl'
 ONE_HOT_ENCODERS = 'one_hot_encoders.pkl'
